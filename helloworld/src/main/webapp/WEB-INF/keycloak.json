@@ -1,0 +1,10 @@
+{
+  "realm": "hclabs-dev",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "ojt",
+  "credentials": {
+    "secret": "**********"
+  },
+  "confidential-port": 0
+}
