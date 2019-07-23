@@ -21,7 +21,11 @@ class CustomerController {
         Boolean ojtUser = authorities.find { it.authority.equals("OJT_USER") } != null
         Boolean ojtAdmin = authorities.find { it.authority.equals("OJT_ADMIN") } != null
         Boolean normalAdmin = authorities.find { it.authority.equals("ROLE_ADMIN") } != null
-        render([message: "able to access customers", isOjtAdmin: ojtAdmin] as JSON)
+        // Another way to access the roles the current user has
+        println "Roles: ${auth?.details?.roles}"
+
+        render([message: "able to access customers", isOjtUser: ojtUser,
+                isOjtAdmin: ojtAdmin, authorities: authorities] as JSON)
     }
 
     def testUserService() {
