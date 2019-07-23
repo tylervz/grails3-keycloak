@@ -36,3 +36,10 @@ Run the Grails application and open your browser to <http://localhost:8082>.
 As is defined in [SecurityConfig.groovy](/helloworld/grails-app/init/helloworld/SecurityConfig.groovy),
 all of the `CustomerController` methods are secured with `ROLE_OJT_USER` and all of the `AdminController` methods are secured with `ROLE_OJT_ADMIN`.
 When you try to access one while not signed in to Keycloak, you will be redirected to sign in.
+
+# TODO
+
+If we tried to build this Grails applicaiton as a Docker image, it might not run properly because files in `/src/main/webapp/`
+don't get copied when the application is packaged as a JAR.
+If that is the case, we will need to try setting the `keycloak.configurationFile` environment variable
+to let the application know to look for the `keycloak.json` file at `src/main/resources/public/WEB-INF/keycloak.json`.

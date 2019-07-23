@@ -6,12 +6,14 @@ import org.keycloak.adapters.springsecurity.client.KeycloakClientRequestFactory
 import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate
 import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Scope
+import org.springframework.core.io.Resource
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
@@ -25,6 +27,12 @@ import org.springframework.security.web.session.HttpSessionEventPublisher
 @EnableWebSecurity
 @ComponentScan(basePackageClasses = KeycloakSecurityComponents.class)
 class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
+
+    // TODO: figure out what path the keycloak.configurationFile environment variable needs to be in order for keycloak.json to get located
+//    static {
+//        @Value("${keycloak.configurationFile:public/WEB-INF/keycloak.json}")
+//        private Resource keycloakConfigFileResource
+//    }
 
     /**
      * Registers the KeycloakAuthenticationProvider with the authentication manager.
