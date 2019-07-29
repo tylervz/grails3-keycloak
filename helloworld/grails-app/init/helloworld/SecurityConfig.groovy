@@ -60,12 +60,11 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
         // Limit the admin path to secured Admins
         http
                 .authorizeRequests()
-//                .antMatchers("/customer/*").hasAnyAuthority("OJT_USER")
-                .antMatchers("/customer/*").hasAnyAuthority("OJT_USER")
-                .antMatchers("/admin/*").hasAnyAuthority("OJT_ADMIN")
+                .antMatchers("/customer/*").hasAnyAuthority("ROLE_OJT_USER")
+                .antMatchers("/admin/*").hasAnyAuthority("ROLE_OJT_ADMIN")
                 .anyRequest().permitAll()
 
-//        Note: .antMatchers("/customer/*").hasRole("OJT_USER") does not seem to work
+//        Note: .antMatchers("/customer/*").hasRole("ROLE_OJT_USER") does not seem to work
 
         // Secure all paths except for assets
 //        http
@@ -74,6 +73,6 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 //                .and()
 //                .authorizeRequests()
 //                .antMatchers("/assets/*").permitAll()
-//                .anyRequest().hasAnyAuthority("OJT_USER", "OJT_ADMIN")
+//                .anyRequest().hasAnyAuthority("ROLE_OJT_USER", "ROLE_OJT_ADMIN")
     }
 }

@@ -4,7 +4,7 @@
   "ssl-required": "external",
   "resource": "ojt",
   "credentials": {
-    "secret": "**********"
+    "secret": "ccc6be03-8a3c-4e4b-87d3-a6b50f5bde3e"
   },
   "confidential-port": 0
 }
